@@ -1,0 +1,24 @@
+{
+  "name": "wait-until-aws-lambda",
+  "version": "0.0.2",
+  "description": "Fakes wait until on AWS Lambda",
+  "type": "module",
+  "main": "dist/index.js",
+  "repository": "https://github.com/bubblydoo/wait-until-aws-lambda",
+  "keywords": [
+    "aws",
+    "lambda"
+  ],
+  "author": "Hans Otto Wirtz <hansottowirtz@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  },
+  "files": [
+    "dist/**"
+  ]
+}
