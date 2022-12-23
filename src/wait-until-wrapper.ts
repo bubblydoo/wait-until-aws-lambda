@@ -1,10 +1,11 @@
 import { WaitUntilList } from "./wait-until-list.js";
+import { Context } from "aws-lambda";
 
 let waitUntilList = new WaitUntilList();
 
-export const waitUntilHandler = (
-  handler: (event: any, context: any) => Promise<any>
-) => {
+export function waitUntilHandler<TEvent = any, TResult = any>(
+  handler: (event: TEvent, context: Context) => Promise<TResult>
+) {
   return async function (event: any, context: any) {
     try {
       return await handler(event, context);
@@ -13,7 +14,7 @@ export const waitUntilHandler = (
       waitUntilList = new WaitUntilList();
     }
   };
-};
+}
 
 export const waitUntil = (promise: Promise<any>) =>
   waitUntilList.waitUntil(promise);

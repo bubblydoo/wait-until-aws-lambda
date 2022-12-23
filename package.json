@@ -1,6 +1,6 @@
 {
   "name": "wait-until-aws-lambda",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Fakes wait until on AWS Lambda",
   "type": "module",
   "main": "dist/index.js",
@@ -16,6 +16,7 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.109",
     "typescript": "^4.9.4"
   },
   "files": [
