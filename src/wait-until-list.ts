@@ -1,3 +1,5 @@
+import { waitUntilAll } from "./wait-until-all.js";
+
 /** Utility class to fake wait until on platforms that don't support it */
 export class WaitUntilList {
   /** List of promisees */
@@ -9,7 +11,7 @@ export class WaitUntilList {
   /** Returns a promise that resolves when all promises in the list have been settled */
   waitUntilFinished = async () => {
     console.log("Wait until promises:", this.promises.length);
-    const results = await Promise.allSettled(this.promises);
+    const results = await waitUntilAll(this.promises);
     console.log("Wait until results", results);
   }
 }
