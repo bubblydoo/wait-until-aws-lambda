@@ -1,9 +1,10 @@
 {
   "name": "wait-until-aws-lambda",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Fakes wait until on AWS Lambda",
-  "type": "module",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "repository": "https://github.com/bubblydoo/wait-until-aws-lambda",
   "keywords": [
     "aws",
@@ -13,13 +14,17 @@
   "license": "MIT",
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "tsc"
+    "build": "tsup src/index.ts --format esm,cjs --dts"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.109",
+    "tsup": "^6.7.0",
     "typescript": "^4.9.4"
   },
   "files": [
     "dist/**"
-  ]
+  ],
+  "dependencies": {
+    "wait-until-generalized": "^0.0.3"
+  }
 }
